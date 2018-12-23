@@ -52,47 +52,51 @@ for ($i = $exception->getLine() - 15; $i < $exception->getLine() + 15; $i++) {
              </code><div style="padding:20px;"><strong><?= $exception->getFile() ?>
                      :<?= $exception->getLine() ?></strong></div>
         </pre>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <?php
-                $varialbes = [
-                        'GET Values'=>$options['get'],
-                        'Post Values'=>$options['post'],
-                        'Files Values'=>$options['files'],
-                        'SERVER Values'=>$options['server'],
-                        'SESSIONS Values'=>$options['session'],
-                        'ENV Values'=>$options['env'],
-                ]
-            ?>
-            <?php foreach($varialbes as $name=>$varialbe){ ?>
-                <h3><?= $name ?></h3>
-                <?php if(count($varialbe) == 0){?>
-                    <strong><pre>Empty</pre></strong>
-                <?php }else{ ?>
-                    <table class="table table-striped table-hover">
-                        <?php foreach($varialbe as $key=>$value){?>
-                            <tr>
-                                <td><strong><?= $key ?></strong></td>
-                                <td><?php if(mb_strlen($value) > 150){ ?><textarea disabled style="width:100%"><?= print_r($value,true) ?></textarea><?php }else{ ?><pre><?= print_r($value,true) ?></pre><?php } ?></td>
-                            </tr>
-                        <?php }?>
-                    </table>
-                <?php }?>
-            <?php }?>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php
+                    $varialbes = [
+                        'GET Values' => $options['get'],
+                        'Post Values' => $options['post'],
+                        'Files Values' => $options['files'],
+                        'SERVER Values' => $options['server'],
+                        'SESSIONS Values' => $options['session'],
+                        'ENV Values' => $options['env'],
+                    ]
+                    ?>
+                    <?php foreach ($varialbes as $name => $varialbe) { ?>
+                        <h3><?= $name ?></h3>
+                        <?php if (count($varialbe) == 0) { ?>
+                            <strong>
+                                <pre>Empty</pre>
+                            </strong>
+                        <?php } else { ?>
+                            <table class="table table-striped table-hover">
+                                <?php foreach ($varialbe as $key => $value) { ?>
+                                    <tr>
+                                        <td><strong><?= $key ?></strong></td>
+                                        <td><?php if (mb_strlen($value) > 150) { ?><textarea disabled
+                                                                                             style="width:100%"><?= print_r($value, true) ?></textarea><?php } else { ?>
+                                                <pre><?= print_r($value, true) ?></pre><?php } ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </table>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </div>
 </div>
 
 </body>
 
 <script>
-    <?= file_get_contents(__DIR__.'/assets/js/jquery.js') ?>
+    <?= file_get_contents(__DIR__ . '/assets/js/jquery.js') ?>
 </script>
 <script>
-    <?php echo file_get_contents(__DIR__.'/assets/js/highlight.min.js'); ?>
+    <?php echo file_get_contents(__DIR__ . '/assets/js/highlight.min.js'); ?>
 </script>
 <script>
     function addSourceLineNumbers() {

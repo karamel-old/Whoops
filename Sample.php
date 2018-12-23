@@ -6,12 +6,12 @@ try {
 } catch (Exception $exception) {
 
     \Karamel\Whoops\Whoops::start([
-        'exception'=>$exception,
-        'get'=>$_GET,
-        'post'=>$_POST,
-        'files'=>$_FILES,
-        'server'=>$_SERVER,
-        'session'=>$_SESSION,
-        'env'=>$_ENV
+        'exception' => $exception,
+        'get' => $_GET,
+        'post' => $_POST,
+        'files' => $_FILES,
+        'server' => $_SERVER,
+        'session' => $_SESSION,
+        'env' => $_ENV
     ]);
 }
